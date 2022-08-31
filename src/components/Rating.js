@@ -1,24 +1,18 @@
-import React from "react";
+import React from 'react';
 
 function Rating(props) {
-    let children = Math.round(props.children);
-  
-    if (children === 0) {
-      children = "☆☆☆☆☆";
-    } else if (children === 1) {
-      children = "★☆☆☆☆";
-    } else if (children === 2) {
-      children = "★★☆☆☆";
-    } else if (children === 3) {
-      children = "★★★☆☆";
-    } else if (children === 4) {
-      children = "★★★★☆";
-    } else if (children === 5) {
-      children = "★★★★★";
-    }
-  
-    return (
-      <h1>{children}</h1>
-    );
-  }
-  export default Rating;
+  const roundedRating = Math.round(Number(props.children));
+
+  return (
+    <div className="rating">
+      {[...Array(roundedRating)].map((el, i) => (
+        <i key={i} className="fa fa-star" />
+      ))}
+      {[...Array(5 - roundedRating)].map((el, i) => (
+        <i key={i} className="fa fa-star-o" />
+      ))}
+    </div>
+  );
+}
+
+export default Rating;

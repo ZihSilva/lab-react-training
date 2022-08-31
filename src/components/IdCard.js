@@ -3,7 +3,7 @@ import React from 'react';
 function IdCard(props) {
     return (
         <div className="id-card">
-            <img src={props.picture} alt = "A person"/>
+            <img src={props.picture} alt = "photo"/>
             <ul>
                 <li><strong>First Name: </strong> {props.firstName}</li>
                 <li><strong>Last Name: </strong> {props.lastName}</li>
